@@ -1,6 +1,7 @@
 import axios from "axios"
 import {useState, useEffect} from "react"
 import {CountryType} from "./type"
+import Country from "./components/Country"
 
 
 const App = () => {
@@ -23,8 +24,10 @@ const App = () => {
 
 
   return (
-    <div>{countries.map(country => {
-        return <p>{country.name} - {country.capital}</p>
+    <div>{countries.map((country) => {
+        return(
+          <Country country={country} /> 
+          )
 
     })}
     </div>
