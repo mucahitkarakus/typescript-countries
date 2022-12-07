@@ -14,6 +14,8 @@ const App = () => {
             setCountries(data)
         } catch{
         console.log("Ülkeleri alırken hata oluştu.");
+        } finally{
+          setLoading(false)
         }
     }
 
