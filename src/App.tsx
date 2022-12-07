@@ -6,7 +6,9 @@ import Country from "./components/Country"
 
 const App = () => {
     const [countries, setCountries] = useState<CountryType[]>([])
+    const [loading, setLoading] = useState<boolean>(false)
     const getCountries = async () => {
+      setLoading(true)
         try {
             const {data} = await axios.get<CountryType[]>("https://restcountries.com/v2/all");
             setCountries(data)
