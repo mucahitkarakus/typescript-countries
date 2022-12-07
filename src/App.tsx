@@ -1,5 +1,5 @@
 import axios from "axios"
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import {CountryType} from "./type"
 
 
@@ -13,8 +13,22 @@ const App = () => {
         console.log("Ülkeleri alırken hata oluştu.");
         }
     }
+
+    useEffect(() => {
+      getCountries();
+    }, [])
+
+    console.log({countries})
+    
+
+
   return (
-    <div>Countries App with TypeScript</div>
+    <div>{countries.map(country => {
+        return <p>{country.name} - {country.capital}</p>
+
+    })}
+    </div>
+
   )
 }
 
